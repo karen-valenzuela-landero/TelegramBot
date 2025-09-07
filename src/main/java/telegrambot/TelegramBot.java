@@ -1,20 +1,16 @@
-package es.codegym.telegrambot;
+package telegrambot;
 
-import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+import static telegrambot.TelegramBotContent.*;
 
 import java.util.Map;
 
-import static es.codegym.telegrambot.TelegramBotContent.*;
-
-public class MyFirstTelegramBot extends MultiSessionTelegramBot {
+public class TelegramBot extends MultiSessionTelegramBot {
     
     private static final String NAME = "CodeGymBot_bot";
     private static final String TOKEN = System.getenv("TELEGRAM_TOKEN");
 
-    public MyFirstTelegramBot() {
+    public TelegramBot() {
         super(NAME, TOKEN);
     }
 
@@ -81,18 +77,5 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
             sendPhotoMessageAsync("final_pic");
             sendTextMessageAsync(FINAL_TEXT);
         }
-
-    }
-
-    public static void main(String[] args)  {
-        
-        try {
-            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new MyFirstTelegramBot());
-        }
-        catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-        
     }
 }

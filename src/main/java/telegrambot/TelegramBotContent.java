@@ -1,4 +1,4 @@
-package es.codegym.telegrambot;
+package telegrambot;
 
 public class TelegramBotContent {
     public static final String STEP_1_TEXT = """
