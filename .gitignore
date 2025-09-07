@@ -1,0 +1,5 @@
+#Ignora ENV
+.env
+
+# Ignora configuración del IDE
+.vscode
