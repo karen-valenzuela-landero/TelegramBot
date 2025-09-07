@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class TelegramBot extends MultiSessionTelegramBot {
     
-    private static final String NAME = "CodeGymBot_bot";
-    private static final String TOKEN = System.getenv("TELEGRAM_TOKEN");
+    private static final String NAME = System.getenv("BOT_NAME");;
+    private static final String TOKEN = System.getenv("BOT_TOKEN");
 
     public TelegramBot() {
         super(NAME, TOKEN);
