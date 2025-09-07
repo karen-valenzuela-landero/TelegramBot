@@ -10,9 +10,10 @@ import java.util.Map;
 import static es.codegym.telegrambot.TelegramBotContent.*;
 
 public class MyFirstTelegramBot extends MultiSessionTelegramBot {
-
-    public static final String NAME = "CodeGymBot_bot";
     
+    private static final String NAME = "CodeGymBot_bot";
+    private static final String TOKEN = System.getenv("TELEGRAM_TOKEN");
+
     public MyFirstTelegramBot() {
         super(NAME, TOKEN);
     }
@@ -83,14 +84,10 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
     }
 
-    @Override
-    public String getBotToken() {
-        return System.getenv("TELEGRAM_TOKEN"); // <-- ¡clave para mantener el token seguro!
-    }
-
-    public static void main(String[] args) throws TelegramApiException {
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+    public static void main(String[] args)  {
+        
         try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(new MyFirstTelegramBot());
         }
         catch (TelegramApiException e) {
